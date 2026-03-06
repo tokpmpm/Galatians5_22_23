@@ -1,0 +1,7 @@
+name = "gemini-proxy"
+main = "gemini-proxy.js"
+compatibility_date = "2024-01-01"
+
+# 環境變數請在 Cloudflare Dashboard 設定（不要在此檔案填入 Key！）
+# GEMINI_API_KEY = "your-key-here"   ← 不要這樣做
+# ALLOWED_ORIGIN = "https://username.github.io"
