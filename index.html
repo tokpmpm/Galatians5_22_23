@@ -113,6 +113,66 @@
             </p>
         </section>
 
+        <!-- FAQ Toggle Button -->
+        <div class="text-center mb-8">
+            <button onclick="toggleFaq()" id="faq-btn"
+                class="inline-flex items-center gap-2 bg-amber-50 border border-amber-300 text-amber-800 font-medium text-sm px-5 py-2.5 rounded-full hover:bg-amber-100 transition shadow-sm">
+                <span>📖</span>
+                <span>使用指南與常見問題（FAQ）</span>
+                <span id="faq-chevron" class="transition-transform duration-300">▼</span>
+            </button>
+        </div>
+
+        <!-- FAQ Content (Collapsible) -->
+        <section id="faq-section" class="hidden mb-10">
+            <div class="card p-6 border-t-4 border-amber-300 text-sm text-stone-700 leading-relaxed">
+                <h2 class="text-xl font-bold text-stone-800 mb-1 serif">🍇 「聖靈的果子」靈修應用導師</h2>
+                <p class="text-amber-700 font-medium mb-5">使用指南與常見問題（FAQ）</p>
+
+                <p class="mb-5 text-stone-600">主內親愛的弟兄姊妹平安：<br><br>
+                    在這個科技飛速發展的時代，我們嘗試藉助人工智慧（AI）來輔助我們的靈修生活。這份工具並非要取代聖靈或牧者的導引，而是作為一個「輔助器」，幫助我們在混亂的思緒中，重新對焦於神的話語。</p>
+
+                <div class="space-y-5">
+                    <div class="bg-amber-50 rounded-lg p-4">
+                        <p class="font-bold text-amber-900 mb-1">Q1：為什麼使用前需要登入 Google 帳號？</p>
+                        <p class="text-stone-600">本工具使用的 AI 運算資源（Gemini API）需要透過 Google
+                            的安全驗證來執行，系統僅用於驗證身分以開啟功能，不會抓取您的私人郵件或雲端檔案。</p>
+                    </div>
+
+                    <div class="bg-amber-50 rounded-lg p-4">
+                        <p class="font-bold text-amber-900 mb-1">Q2：我有隱私隱憂怎麼辦？</p>
+                        <p class="text-stone-600">建議在描述處境時，不要輸入真實全名、具體公司名稱、地址或任何敏感的個資。<br>
+                            例如：與其寫「我在台北的 XX 公司跟王小明經理吵架」，不如寫「我在職場上與上司有溝通衝突」。神知道您的具體情況，不需在系統中輸入私密個資。</p>
+                    </div>
+
+                    <div class="bg-amber-50 rounded-lg p-4">
+                        <p class="font-bold text-amber-900 mb-1">Q3：人工智慧真的能給我屬靈的建議嗎？</p>
+                        <p class="text-stone-600">
+                            生命的改變唯有聖靈能達成。這個工具能快速幫我們從《加拉太書》的九種果子中，對應出適合您目前處境的特質。您可以把它看作是一本「會互動的靈修字典」，最終的感動與安慰，仍請您回到禱告中與主親自對話。
+                        </p>
+                    </div>
+
+                    <div class="bg-amber-50 rounded-lg p-4">
+                        <p class="font-bold text-amber-900 mb-1">Q4：AI 生成的禱告文，可以代表我的心聲嗎？</p>
+                        <p class="text-stone-600">AI 生成的禱告文是一個「草稿」或「範例」，旨在當我們憂傷到「不曉得當怎樣禱告」（羅
+                            8:26）時，給我們一些言辭上的啟發。請以此為基礎，加入您最真實的情感與細節，向阿爸父傾心吐意。</p>
+                    </div>
+
+                    <div class="bg-amber-50 rounded-lg p-4">
+                        <p class="font-bold text-amber-900 mb-2">Q5：如何正確使用，不變成「依賴機器」？</p>
+                        <ol class="list-decimal pl-5 space-y-1 text-stone-600">
+                            <li><strong>先安靜：</strong>做一個簡短的默禱，邀請聖靈帶領。</li>
+                            <li><strong>輸入：</strong>真誠地面對自己的軟弱，寫下目前的掙扎。</li>
+                            <li><strong>閱讀與察驗：</strong>閱讀分析，對照聖經，看看是否符合聖靈的提醒。</li>
+                            <li><strong>親自禱告：</strong>關掉螢幕，用您自己的話，接受聖靈在您生命中的修剪與栽種。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <p class="mt-5 text-center text-stone-500 italic text-xs">願聖靈親自在您心中結出豐盛的果子！🙏</p>
+            </div>
+        </section>
+
         <!-- AI Assistant Section -->
         <section id="ai-assistant">
             <div class="border-l-4 border-purple-500 pl-4 mb-6 flex items-center justify-between">
@@ -197,6 +257,17 @@
             setTimeout(() => {
                 textarea.classList.remove('ring-2', 'ring-purple-200', 'border-purple-500');
             }, 1000);
+        }
+
+        function toggleFaq() {
+            const section = document.getElementById('faq-section');
+            const chevron = document.getElementById('faq-chevron');
+            const isHidden = section.classList.contains('hidden');
+            section.classList.toggle('hidden', !isHidden);
+            chevron.style.transform = isHidden ? 'rotate(180deg)' : '';
+            if (isHidden) {
+                setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+            }
         }
 
         /* ----------------------------------------------------------------
